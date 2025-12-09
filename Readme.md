@@ -5,14 +5,14 @@ The app uses Firebase Authentication + Firebase Realtime Database, and it is ful
 
 🚀 Live Demo
 
-👉 Live Website: 
-👉 GitHub Repository: https://github.com/kusupriyanka04/Module3_Assignments/tree/main/TimeTrackingApp
+👉 Live Website: https://github.com/kusupriyanka04/TimeTrackingApp/deployments/github-pages
+👉 GitHub Repository: https://github.com/kusupriyanka04/TimeTrackingApp
 
 🎥 Video Walkthrough
 
-👉 Full 2–5 Minute Demo Video: add YouTube or Google Drive link here
+👉 Full 2–5 Minute Demo Video: https://drive.google.com/file/d/1P9lU3Fvwg-EuxbP_78vhpelyp0QWorqN/view?usp=drivesdk
 
-The video must show:
+The video shows:
 
 Login & Signup (Email + Google Login)
 
