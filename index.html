@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TimeTracker — Log Activities</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/icon-192.png" />
+</head>
+<body class="m3-root">
+
+  <header class="m3-topbar">
+    <div class="m3-topbar__brand">
+      <img src="assets/logo.svg" class="brand__logo" alt="logo" />
+      <span class="brand__title">TimeTracker</span>
+    </div>
+    <div class="m3-topbar__actions">
+      <button id="openDashboardBtn" class="m3-btn m3-btn--text">Dashboard</button>
+      <button id="logoutBtn" class="m3-btn m3-btn--outlined">Logout</button>
+    </div>
+  </header>
+
+  <main class="m3-container">
+    <section class="m3-card m3-grid">
+      <div class="m3-col m3-col--left">
+        <h1 class="m3-title">Log your day</h1>
+        <p class="m3-sub">Add activities in minutes. The system enforces a 24-hour (1440 minutes) limit per day.</p>
+
+        <label class="m3-label">Select date</label>
+        <input id="datePicker" class="m3-input" type="date" />
+
+        <div class="m3-row m3-row--spaced">
+          <div class="m3-chip">Remaining: <strong id="remainingText">—</strong> min</div>
+          <div class="m3-chip">Total: <strong id="totalText">—</strong> min</div>
+        </div>
+
+        <form class="m3-form" onsubmit="return false;">
+          <input id="activityName" class="m3-input" placeholder="Activity name (e.g., Coding)" />
+          <select id="category" class="m3-select">
+            <option>Work</option><option>Study</option><option>Sleep</option>
+            <option>Entertainment</option><option>Exercise</option><option>Other</option>
+          </select>
+          <input id="duration" class="m3-input" type="number" min="1" placeholder="Duration (minutes)" />
+          <div class="m3-row">
+            <button id="addBtn" class="m3-btn m3-btn--filled">Add Activity</button>
+            <button id="clearDayBtn" class="m3-btn m3-btn--outlined">Clear Day</button>
+          </div>
+        </form>
+
+        <h2 class="m3-subtitle">Activities</h2>
+        <div id="activityList" class="m3-list"></div>
+
+        <div class="m3-row m3-row--end" style="margin-top:12px">
+          <button id="analyseBtn" class="m3-btn m3-btn--large m3-btn--filled" disabled>Analyse</button>
+        </div>
+      </div>
+
+      <div class="m3-col m3-col--right">
+        <h3 class="m3-subtitle">Day Timeline</h3>
+        <div id="timeline" class="m3-timeline m3-timeline--empty">
+          <div class="m3-timeline__placeholder">No data yet — add activities.</div>
+        </div>
+        <div class="m3-info"><p class="m3-muted">Timeline shows relative durations; hover bars for detail.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').catch(()=>{/* ignore */});
+    }
+  </script>
+</body>
+</html>

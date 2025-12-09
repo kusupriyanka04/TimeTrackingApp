@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TimeTracker — Login</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/icon-192.png" />
+</head>
+<body class="m3-auth-root">
+  <main class="m3-auth-card">
+    <div class="m3-auth-brand">
+      <img src="assets/logo.svg" alt="TimeTracker" style="width:72px" />
+      <h1>TimeTracker</h1>
+      <p class="m3-muted">Track & analyze your 24 hours — one minute at a time.</p>
+    </div>
+
+    <div class="m3-form-group">
+      <input id="email" class="m3-input" type="email" placeholder="Email" />
+      <input id="password" class="m3-input" type="password" placeholder="Password" />
+
+      <div class="m3-row">
+        <button id="loginBtn" class="m3-btn m3-btn--filled">Login</button>
+        <button id="registerBtn" class="m3-btn m3-btn--outlined">Create account</button>
+      </div>
+
+      <div class="m3-divider">or</div>
+
+      <button id="googleBtn" class="m3-btn m3-btn--outlined m3-google">
+        <img src="assets/google-icon.svg" class="icon" /> Sign in with Google
+      </button>
+    </div>
+  </main>
+
+  <script type="module">
+    import { loginUser, registerUser, googleLogin, onUserState } from "./js/auth.js";
+    const email = document.getElementById("email"), pass = document.getElementById("password");
+    document.getElementById("loginBtn").addEventListener("click", ()=> loginUser(email.value.trim(), pass.value.trim()));
+    document.getElementById("registerBtn").addEventListener("click", ()=> registerUser(email.value.trim(), pass.value.trim()));
+    document.getElementById("googleBtn").addEventListener("click", ()=> googleLogin());
+    onUserState(user => { if (user) window.location.href = "index.html"; });
+  </script>
+</body>
+</html>

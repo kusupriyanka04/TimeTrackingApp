@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TimeTracker — Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/icon-192.png" />
+</head>
+<body class="m3-root">
+  <header class="m3-topbar">
+    <div class="m3-topbar__brand">
+      <img src="assets/logo.svg" class="brand__logo" alt="logo" />
+      <span class="brand__title">Analytics</span>
+    </div>
+    <div class="m3-topbar__actions">
+      <button id="backBtn" class="m3-btn m3-btn--text">Back</button>
+      <button id="logoutBtn" class="m3-btn m3-btn--outlined">Logout</button>
+    </div>
+  </header>
+
+  <main class="m3-container">
+    <section class="m3-card">
+      <div class="m3-row m3-row--spaced">
+        <label class="m3-label">Select date</label>
+        <input id="dashDate" class="m3-input" type="date" />
+      </div>
+
+      <div id="noData" class="m3-empty-state hidden">
+        <div class="m3-emoji">🗓️</div>
+        <h3>No data available</h3>
+        <p class="m3-muted">Start logging your day to see insights.</p>
+        <div class="m3-row" style="justify-content:center;margin-top:12px">
+          <button id="goLog" class="m3-btn m3-btn--filled">Start Logging</button>
+        </div>
+      </div>
+
+      <div id="stats" class="hidden">
+        <div class="m3-stats-row">
+          <div class="m3-stat">
+            <div class="m3-stat__value" id="totalHours">0h</div>
+            <div class="m3-muted">Total time</div>
+          </div>
+          <div class="m3-stat">
+            <div class="m3-stat__value" id="numActivities">0</div>
+            <div class="m3-muted">Activities</div>
+          </div>
+        </div>
+
+        <div class="m3-charts">
+          <canvas id="pieChart"></canvas>
+          <canvas id="barChart"></canvas>
+        </div>
+
+        <h4 class="m3-subtitle">Timeline</h4>
+        <div id="dashTimeline" class="m3-timeline"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
+
+

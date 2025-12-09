@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TimeTracker — Timeline</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="m3-root">
+  <header class="m3-topbar">
+    <div class="m3-topbar__brand">
+      <img src="assets/logo.svg" class="brand__logo" alt="logo" />
+      <span class="brand__title">Timeline</span>
+    </div>
+    <div class="m3-topbar__actions">
+      <button onclick="history.back()" class="m3-btn m3-btn--text">Back</button>
+    </div>
+  </header>
+
+  <main class="m3-container">
+    <section class="m3-card">
+      <div class="m3-row">
+        <label class="m3-label">Select date</label>
+        <input id="tlDate" class="m3-input" type="date" />
+      </div>
+
+      <h3 class="m3-subtitle">24-hour Timeline</h3>
+      <div id="timeline24" class="m3-timeline large m3-timeline--empty">
+        <div class="m3-timeline__placeholder">Choose a date to view a detailed timeline.</div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/timeline.js"></script>
+</body>
+</html>
